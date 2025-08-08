@@ -177,11 +177,11 @@ function newProductPage(product){
   const newDisscountPrice = document.createElement('p');
 
   if(product.on_sale){
-      divPirce.classList.add('warp-price');
-      newDisscountPrice.textContent = `$${product.sale_price}`;
-      newDisscountPrice.classList.add('price-on-sale');
-      divPirce.append(newDisscountPrice);
-    }
+    divPirce.classList.add('warp-price');
+    newDisscountPrice.textContent = `$${product.sale_price}`;
+    newDisscountPrice.classList.add('price-on-sale');
+    divPirce.append(newDisscountPrice);
+  }
 
   divPirce.append(newProdactPrice);
   
