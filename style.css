@@ -36,6 +36,10 @@ body {
     display: none;
 }
 
+img.displaySlide{
+    display: block;
+}
+
 .ul-Categories {
     display: flex;
     flex-direction: row;
