@@ -24,6 +24,18 @@ body {
     justify-content: center;
 }
 
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider img{
+    width: 100%;
+    display: none;
+}
+
 .ul-Categories {
     display: flex;
     flex-direction: row;
