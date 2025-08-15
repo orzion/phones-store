@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 
-const productsContainer = document.querySelector('#products');
+let productsContainer = document.querySelector('#products');
 
 const categoryProducts = document.querySelector('#items-cat');
 
@@ -131,12 +131,45 @@ if(categoryProducts !==null){
 }
 
 
+function OnSort(type,products){
+  if(type == 'smallet_price'){
+    return products.sort((a,b)=>{
+      return a.price  - b.price;
+    })
+  }
+  else if(type == 'bigest_price'){
+    return products.sort((a,b)=>{
+      return b.price -a.price;
+    })
+  }
+  else if(type == 'select_sort')
+    return products.sort((a,b)=>{
+      return a.id -b.id;
+    })
+
+  
+}
+
+let products;
+
+const productHtml = document.querySelector('#products');
+
+document.querySelector('#sort')?.addEventListener('change',(e)=>{
+  let type = e.target.value;
+  productHtml.innerHTML = '';
+  let productsSorted = OnSort(type,products);
+  console.log(products);
+  productsSorted.forEach(product=>{
+    createNewProduct(product);
+  })
+
+})
 if(productsContainer!==null){
 fetch('./products.json')
 .then(res=>res.json())
 .then(data=>{
-    console.log(data);
-    data.forEach(product => {
+    products = data;
+    data.forEach((product,index) => {
         createNewProduct(product);
     });
 })
