@@ -24,6 +24,15 @@ body {
     justify-content: center;
 }
 
+.contain-products-sort-check{
+    display: flex;
+    align-items: baseline;
+}
+
+.contain-check{
+    margin-right: 2em;
+}
+
 .slider{
     position: relative;
     width: 100%;
