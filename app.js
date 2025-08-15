@@ -22,8 +22,10 @@ const cartContainerPage = document.querySelector('.cart-main');
 const slides = document.querySelectorAll('.slides img');
 let slideIndex =0;
 let intervalId = null;
+
 if(slides!==null)
   document.addEventListener('DOMContentLoaded',initializeSlider);
+
 function initializeSlider(){
   if(slides.length >0){
     slides[slideIndex].classList.add('displaySlide');

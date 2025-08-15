@@ -40,6 +40,10 @@ img.displaySlide{
     display: block;
 }
 
+.sort-select{
+    display: flex;
+}
+
 .ul-Categories {
     display: flex;
     flex-direction: row;
