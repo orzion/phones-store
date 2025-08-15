@@ -144,7 +144,7 @@ function OnSort(type,products){
   }
   else if(type == 'select_sort')
     return products.sort((a,b)=>{
-      return a.id -b.id;
+      return b.id-a.id;
     })
 
   
@@ -158,7 +158,6 @@ document.querySelector('#sort')?.addEventListener('change',(e)=>{
   let type = e.target.value;
   productHtml.innerHTML = '';
   let productsSorted = OnSort(type,products);
-  console.log(products);
   productsSorted.forEach(product=>{
     createNewProduct(product);
   })
@@ -169,9 +168,10 @@ fetch('./products.json')
 .then(res=>res.json())
 .then(data=>{
     products = data;
-    data.forEach((product,index) => {
-        createNewProduct(product);
-    });
+    let productsSorted = OnSort('select_sort',products);
+    productsSorted.forEach(product=>{
+    createNewProduct(product);
+  })
 })
 .catch(err=> console.error(err));
 }
