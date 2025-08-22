@@ -163,6 +163,7 @@ document.querySelector('#sort')?.addEventListener('change',(e)=>{
   })
 
 })
+
 if(productsContainer!==null){
 fetch('./products.json')
 .then(res=>res.json())
