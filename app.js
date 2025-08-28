@@ -132,17 +132,17 @@ if(categoryProducts !==null){
 
 
 function OnSort(type,products){
-  if(type == 'smallet_price'){
+  if(type === 'smallet_price'){
     return products.sort((a,b)=>{
       return a.price  - b.price;
     })
   }
-  else if(type == 'bigest_price'){
+  else if(type === 'bigest_price'){
     return products.sort((a,b)=>{
       return b.price -a.price;
     })
   }
-  else if(type == 'select_sort')
+  else if(type === 'select_sort')
     return products.sort((a,b)=>{
       return b.id-a.id;
     })
