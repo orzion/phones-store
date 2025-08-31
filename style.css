@@ -45,6 +45,22 @@ body {
     display: none;
 }
 
+.sherch-images{
+    width: 8em;
+}
+
+.contians-sherch-res{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.sherch-res-text{
+    margin-right: 1em;
+}
+
+
 img.displaySlide{
     display: block;
 }
