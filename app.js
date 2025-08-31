@@ -475,7 +475,7 @@ function sherching(input){
     
     if(e.target.value.length >=2){
 
-      newSherchArr = products.filter(item=>item.title.includes(e.target.value));
+      newSherchArr = products.filter(item=>item.title.toUpperCase().includes(e.target.value.toUpperCase()));
 
       newSherchArr.forEach(item=>{
 
@@ -494,7 +494,6 @@ function sherching(input){
         newLink.append(newTitle,newImage);
         const resultes = document.querySelector('.resultes');
         resultes.append(newLink);
-
       })
     }
   })
