@@ -56,6 +56,8 @@ function prevSlide(){
   showSlide(slideIndex);
 }
 
+let sherchInput = document.querySelector('#search-input');
+
 if(cartContainerPage!==null){
    renderCartPage();
 }
@@ -132,17 +134,17 @@ if(categoryProducts !==null){
 
 
 function OnSort(type,products){
-  if(type == 'smallet_price'){
+  if(type === 'smallet_price'){
     return products.sort((a,b)=>{
       return a.price  - b.price;
     })
   }
-  else if(type == 'bigest_price'){
+  else if(type === 'bigest_price'){
     return products.sort((a,b)=>{
       return b.price -a.price;
     })
   }
-  else if(type == 'select_sort')
+  else if(type === 'select_sort')
     return products.sort((a,b)=>{
       return b.id-a.id;
     })
@@ -176,6 +178,8 @@ fetch('./products.json')
 })
 .catch(err=> console.error(err));
 }
+let newSherchArr;
+sherching(sherchInput);
 
 function createNewProduct(product){
     let newDiv = document.createElement('div');
@@ -462,4 +466,37 @@ function renderCartPage() {
   cartContainerPage.append(totalDiv);
 
   displayCart();
+}
+
+function sherching(input){
+  input.addEventListener('input',e=>{
+
+    document.querySelector('.resultes').innerHTML = "";
+    
+    if(e.target.value.length >=2){
+
+      newSherchArr = products.filter(item=>item.title.includes(e.target.value));
+
+      newSherchArr.forEach(item=>{
+
+        const newLink = document.createElement('a');
+        newLink.href = `product.html?productId=${item.id}`;
+        newLink.classList.add('contians-sherch-res');
+
+        const newImage = document.createElement('img');
+        newImage.src = item.image;
+        newImage.classList.add('sherch-images');
+
+        const newTitle = document.createElement('p');
+        newTitle.textContent = item.title;
+        newTitle.classList.add('sherch-res-text');
+
+        newLink.append(newTitle,newImage);
+        const resultes = document.querySelector('.resultes');
+        resultes.append(newLink);
+
+      })
+    }
+  })
+  
 }
