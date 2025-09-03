@@ -149,6 +149,12 @@ function OnSort(type,products){
       return b.id-a.id;
     })
 
+  else if(type ==='poplarty'){
+    return products.sort((a,b)=>{
+      return b.poplarty -a.poplarty;
+    })
+  }
+
   
 }
 
@@ -173,6 +179,7 @@ fetch('./products.json')
     products = data;
     let productsSorted = OnSort('select_sort',products);
     productsSorted.forEach(product=>{
+    console.log(product);
     createNewProduct(product);
   })
 })
