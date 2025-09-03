@@ -8,6 +8,7 @@
     "category": "phone",
     "price": 1049,
     "sale_price": 940.50,
+    "poplarty" : 5 ,
     "on_sale": true,
     "link": "./product.html"
   },
@@ -20,6 +21,7 @@
     "category": "phone",
     "price": 949.00,
     "sale_price": null,
+    "poplarty" : 8 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -31,6 +33,7 @@
     "description": "realme C11 2021 2GB RAM+32GB",
     "category": "phone",
     "price": 150.50,
+    "poplarty" : 4 ,
     "sale_price": 100.20,
     "on_sale": true,
     "link": "./product.html"
@@ -43,6 +46,7 @@
     "description": "vivo Y76 5G 8GB+128GB blue.",
     "category": "phone",
     "price": 850.50,
+    "poplarty" : 6 ,
     "sale_price": null,
     "on_sale": false,
     "link": "./product.html"
@@ -56,6 +60,7 @@
     "category": "phone",
     "price": 755.19,
     "sale_price": 650.50,
+    "poplarty" : 3 ,
     "on_sale": true,
     "link": "./product.html"
   },
@@ -68,6 +73,7 @@
     "category": "phone",
     "price": 949.00,
     "sale_price": null,
+    "poplarty" : 2 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -80,6 +86,7 @@
     "category": "tablet",
     "price": 1099,
     "sale_price": null,
+    "poplarty" : 5 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -92,6 +99,7 @@
     "category": "tablet",
     "price": 129.00,
     "sale_price": null,
+    "poplarty" : 10 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -104,6 +112,7 @@
     "category": "tablet",
     "price": 129.00,
     "sale_price": null,
+    "poplarty" : 1 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -116,6 +125,7 @@
     "category": "headphones",
     "price": 50.00,
     "sale_price": 35.90,
+    "poplarty" : 10 ,
     "on_sale": true,
     "link": "./product.html"
   },
@@ -128,6 +138,7 @@
     "category": "headphones",
     "price": 250,
     "sale_price": null,
+    "poplarty" : 8 ,
     "on_sale": false,
     "link": "./product.html"
   },
@@ -140,6 +151,7 @@
     "category": "headphones",
     "price": 250,
     "sale_price": null,
+    "poplarty" : 8,
     "on_sale": false,
     "link": "./product.html"
   }
