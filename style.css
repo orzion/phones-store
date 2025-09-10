@@ -45,17 +45,27 @@ body {
     display: none;
 }
 
+.sherch-bar{
+    position: relative;
+}
+
 .sherch-images{
-    width: 8em;
+    max-width: 4em;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-left: 2em;
+    margin-right: 0;
 }
 
 .contians-sherch-res{
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #181818;
+    font-size: 16px;
+    margin-bottom: 0.5em;
     text-decoration: none;
-    color:#333;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 1em;
 }
 
 .sherch-res-text{
@@ -170,16 +180,16 @@ img.displaySlide{
     cursor: pointer;
 }
 
-.phone-cat{
-    margin-right: 1em;
-}
-
-#phone{
-    font-size: 2em;
-}
-
-#Tablets{
-    font-size: 2em;
+.resultes{
+    top: 4em;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+    z-index: 1000;
+    overflow: hidden;
 }
 
 .right-arrow-btn {
