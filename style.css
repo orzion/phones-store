@@ -359,6 +359,10 @@ footer {
     font-weight: 900;
 }
 
+.active{
+    display: block;
+}
+
 .prodact-img2{
     width: 20rem;
     height: 20rem;
