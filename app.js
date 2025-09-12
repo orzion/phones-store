@@ -56,6 +56,25 @@ function prevSlide(){
   showSlide(slideIndex);
 }
 
+let rootElement = document.documentElement;
+
+document.querySelector('.back-to-top').addEventListener('click',(e)=>{
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+});
+
+document.addEventListener('scroll',(e)=>{
+  if(rootElement.scrollTop>(rootElement.clientHeight/2)){
+    document.querySelector('.back-to-top').classList.add('active');
+  }
+  else{
+    document.querySelector('.back-to-top').classList.remove('active');
+  }
+});
+
 let sherchInput = document.querySelector('#search-input');
 
 if(cartContainerPage!==null){

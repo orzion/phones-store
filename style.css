@@ -359,6 +359,13 @@ footer {
     font-weight: 900;
 }
 
+.back-to-top{
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 1px;
+}
+
 .active{
     display: block;
 }
