@@ -359,6 +359,17 @@ footer {
     font-weight: 900;
 }
 
+.back-to-top{
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 1px;
+}
+
+.active{
+    display: block;
+}
+
 .prodact-img2{
     width: 20rem;
     height: 20rem;
