@@ -58,7 +58,12 @@ function prevSlide(){
 
 let rootElement = document.documentElement;
 
-document.querySelector('.back-to-top').addEventListener('click',(e)=>{
+
+
+let mainIndex = document.querySelector('.main-index');
+
+if(document.querySelector('.back-to-top')!==null){
+  document.querySelector('.back-to-top').addEventListener('click',(e)=>{
   e.preventDefault();
   window.scrollTo({
     top: 0,
@@ -66,7 +71,7 @@ document.querySelector('.back-to-top').addEventListener('click',(e)=>{
   })
 });
 
-document.addEventListener('scroll',(e)=>{
+  document.addEventListener('scroll',(e)=>{
   if(rootElement.scrollTop>(rootElement.clientHeight/2)){
     document.querySelector('.back-to-top').classList.add('active');
   }
@@ -74,6 +79,7 @@ document.addEventListener('scroll',(e)=>{
     document.querySelector('.back-to-top').classList.remove('active');
   }
 });
+}
 
 let sherchInput = document.querySelector('#search-input');
 
@@ -205,7 +211,8 @@ fetch('./products.json')
 .catch(err=> console.error(err));
 }
 let newSherchArr;
-sherching(sherchInput);
+if(mainIndex!==null)
+  sherching(sherchInput);
 
 function createNewProduct(product){
     let newDiv = document.createElement('div');
