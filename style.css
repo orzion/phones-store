@@ -41,6 +41,8 @@ body {
 .slider img{
     width: 100%;
     display: none;
+    height: 849px;
+    margin-top: 6em;
 }
 
 .sherch-bar{
