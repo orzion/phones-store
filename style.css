@@ -1273,6 +1273,7 @@ textarea#review-comment {
 
     .backruond{
         padding-top: 0;
+        margin-top: 10px;
     }
     .backround-txt{
         font-size: 50px;

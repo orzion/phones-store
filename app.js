@@ -23,38 +23,46 @@ const slides = document.querySelectorAll('.slides img');
 let slideIndex =0;
 let intervalId = null;
 
-if(slides!==null)
-  document.addEventListener('DOMContentLoaded',initializeSlider);
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slides img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
 
-function initializeSlider(){
-  if(slides.length >0){
+  let slideIndex = 0;
+  let intervalId = null;
+
+  if (slides.length > 0) {
     slides[slideIndex].classList.add('displaySlide');
-    intervalId = setInterval(nextSlide,5000);
-  }
-}
-function showSlide(index){
-  if(index >= slides.length){
-    index =0;
-  }
-  else if(index <0){
-    index = slides.length -1;
+    intervalId = setInterval(nextSlide, 5000);
   }
 
-  slides.forEach(slide=>{
-    slide.classList.remove('displaySlide');
-  });
-  slides[index].classList.add('displaySlide');
-}
+  function showSlide(index) {
+    if (index >= slides.length) {
+      index = 0;
+    } else if (index < 0) {
+      index = slides.length - 1;
+    }
 
-function nextSlide(){
-  slideIndex++;
-  showSlide(slideIndex);
-}
-function prevSlide(){
-  clearInterval(intervalId);
-  slideIndex--;
-  showSlide(slideIndex);
-}
+    slides.forEach(slide => {
+      slide.classList.remove('displaySlide');
+    });
+    slides[index].classList.add('displaySlide');
+    slideIndex = index;
+  }
+
+  function nextSlide() {
+    showSlide(slideIndex + 1);
+  }
+
+  function prevSlide() {
+    clearInterval(intervalId);
+    showSlide(slideIndex - 1);
+  }
+
+  // חיבור כפתורים לפונקציות
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+});
 
 let rootElement = document.documentElement;
 
