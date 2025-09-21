@@ -23,7 +23,49 @@ const slides = document.querySelectorAll('.slides img');
 let slideIndex =0;
 let intervalId = null;
 
+const productHtml = document.querySelector('#products');
 
+const checkbox = document.querySelectorAll('.checkbox');
+
+const containproductssort = document.querySelector('.contain-products-sort-check');
+let filterArr = [];
+if(containproductssort!==null){
+  productHtml.innerHTML = '';
+  fetch('./products.json')
+  .then(res=>res.json())
+  .then(data=>{
+    filterArr =data;
+    renderProducts(filterArr , productHtml);
+  })
+}
+
+function renderProducts(products , container){
+        productHtml.innerHTML = '';
+
+        products.forEach(product => {
+            createNewProduct(product);
+        });
+
+    }
+    //הסינון
+    if(containproductssort!==null){
+      checkbox.forEach(check =>{
+        check.addEventListener('change' , () =>{
+
+            const selectSort = Array.from(checkbox)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+            if(selectSort.length > 0){
+                const filtered = filterArr.filter(product => selectSort.includes(product.brand) || selectSort.includes(product.storege));
+                renderProducts(filtered , productHtml);
+            } 
+            else{
+                renderProducts(filterArr , productHtml);
+            }
+        });
+    });
+    }
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -195,8 +237,6 @@ function OnSort(type,products){
 }
 
 let products;
-
-const productHtml = document.querySelector('#products');
 
 document.querySelector('#sort')?.addEventListener('change',(e)=>{
   let type = e.target.value;
