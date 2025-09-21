@@ -121,6 +121,12 @@ img.displaySlide{
     list-style-type: none;
 }
 
+.contians-chack-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .backruond {
     margin: 0;
     padding: 0;

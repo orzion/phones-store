@@ -23,6 +23,9 @@ const slides = document.querySelectorAll('.slides img');
 let slideIndex =0;
 let intervalId = null;
 
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
@@ -212,7 +215,6 @@ fetch('./products.json')
     products = data;
     let productsSorted = OnSort('select_sort',products);
     productsSorted.forEach(product=>{
-    console.log(product);
     createNewProduct(product);
   })
 })
@@ -225,6 +227,7 @@ if(mainIndex!==null)
 function createNewProduct(product){
     let newDiv = document.createElement('div');
     newDiv.classList.add('prodact');
+    newDiv.dataset.brand =product.brand;
 
     let newlink = document.createElement('a');
     newlink.href = `product.html?productId=${product.id}`;
