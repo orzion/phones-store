@@ -4,6 +4,7 @@
         "firtName": "or",
         "lastName": "zion",
         "email": "skhn7412@gmail.com",
+        "password": "orzion45632546",
         "imageProfile": "./"
     },
     {
@@ -11,6 +12,7 @@
          "firtName": "bar",
          "lastName": "zion",
          "email":  "barzion34@gmail.com",
+         "password": "barzion45632546",
          "image": "./"
     }
 ]

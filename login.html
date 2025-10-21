@@ -25,7 +25,7 @@
                     ☰
                 </li>
                 <li class="nav-item">
-                    <a href="./sinup.html" class="nav-link sinup-nav">login/sinup</a>
+                    <a href="./login.html" class="nav-link sinup-nav">login/sinup</a>
                 </li>
                 <li class="nav-item">
                     <a href="./category.html" class="nav-link">category</a>
@@ -44,16 +44,8 @@
     </header>
     <main class="main-sinup">
         
-        <form action="" class="form-sinup" method="get">
-            <h1 class="title-sinup">sinup</h1>
-            <div class="fullname">
-                <label class="screen-reader-only" for="firstname">first name</label>
-                <input class="input-sizeing" type="text" name="firstname" id="firstname" required min="6" placeholder="name">
-            </div>
-            <div class="fullname">
-                <label class="screen-reader-only" for="lastname">last name</label>
-                <input class="input-sizeing" type="text" name="lastname" id="lastname" required min="6" placeholder="name">
-            </div>
+        <form  class="form-sinup" id="login-conteiner">
+            <h1 class="title-sinup">login</h1>
             <div class="email">
                 <label class="screen-reader-only" for="email">email</label>
                 <input class="input-sizeing" type="email" name="email" id="email" required placeholder="exemple@exemple.com">
@@ -62,19 +54,8 @@
                 <label class="screen-reader-only" for="password">password</label>
                 <input class="input-sizeing" type="password" name="password" id="password" required placeholder="password" minlength="8">
             </div>
-            <div class="renter-password">
-                <label class="screen-reader-only" for="renter-password">renter password</label>
-                <input class="input-sizeing" type="password" name="renter-password" id="renter-password" required placeholder="renter password" minlength="8">
-            </div>
-            <div class="terms-and-service">
-                <label for="terms-and-service">terms and service</label>
-                <input type="checkbox" name="terms-and-service" id="terms-and-service" required>
-            </div>
             <div class="submit">
                 <input class="submit-sinup" type="submit" value="submit">
-            </div>
-            <div class="move-to-login">
-                <p>have an existent acount <a href="">login</a></p>
             </div>
         </form>
     </main>

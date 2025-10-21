@@ -63,6 +63,12 @@ function renderProducts(products , container){
     });
     }*/
 
+const loginConteiner = document.querySelector('#login-conteiner');
+
+
+if(loginConteiner!==null){
+}
+
 
 const containproductssort = document.querySelector('.contain-products-sort-check');
 const checkbox = document.querySelectorAll('input[type="checkbox"]');
