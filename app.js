@@ -23,11 +23,7 @@ const slides = document.querySelectorAll('.slides img');
 let slideIndex =0;
 let intervalId = null;
 
-const productHtml = document.querySelector('#products');
-
-const checkbox = document.querySelectorAll('.checkbox');
-
-const containproductssort = document.querySelector('.contain-products-sort-check');
+/*const containproductssort = document.querySelector('.contain-products-sort-check');
 let filterArr = [];
 if(containproductssort!==null){
   productHtml.innerHTML = '';
@@ -65,8 +61,90 @@ function renderProducts(products , container){
             }
         });
     });
-    }
+    }*/
 
+
+const containproductssort = document.querySelector('.contain-products-sort-check');
+const checkbox = document.querySelectorAll('input[type="checkbox"]');
+const productHtml = document.querySelector('#products');
+let filterArr = [];
+
+if (containproductssort !== null) {
+  const clearBtn = document.querySelector('.clear-filters'); 
+  const params = new URLSearchParams(window.location.search);
+  const selectedFilters = params.get('filters') ? params.get('filters').split(',') : [];
+
+  fetch('./products.json')
+    .then(res => res.json())
+    .then(data => {
+      filterArr = data;
+
+      checkbox.forEach(ch => {
+        if (selectedFilters.includes(ch.value)) ch.checked = true;
+      });
+
+      applyFilter();
+
+      checkbox.forEach(check => {
+        check.addEventListener('change', () => {
+          updateURL();
+          applyFilter();
+        });
+      });
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          checkbox.forEach(ch => ch.checked = false);
+          updateURL(true);
+          applyFilter();
+        });
+      }
+
+      function applyFilter() {
+        const checkedValues = Array.from(checkbox)
+          .filter(c => c.checked)
+          .map(c => c.value);
+
+        let filtered = filterArr;
+        if (checkedValues.length > 0) {
+          filtered = filterArr.filter(product =>
+            checkedValues.includes(product.brand) ||
+            checkedValues.includes(product.storege)
+          );
+        }
+
+        renderProducts(filtered, productHtml);
+
+        if (clearBtn) {
+          clearBtn.style.display = checkedValues.length > 0 ? 'block' : 'none';
+        }
+      }
+
+      function updateURL(clear = false) {
+        const params = new URLSearchParams();
+
+        if (!clear) {
+          const checkedValues = Array.from(checkbox)
+            .filter(c => c.checked)
+            .map(c => c.value);
+
+          if (checkedValues.length > 0) {
+            params.set('filters', checkedValues.join(','));
+          }
+        }
+
+        const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        window.history.replaceState({}, '', newUrl);
+      }
+    });
+}
+
+function renderProducts(products, container) {
+  container.innerHTML = '';
+  products.forEach(product => {
+    createNewProduct(product);
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slides img');
