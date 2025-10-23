@@ -1,7 +1,7 @@
 [
     {
         "id": 11,
-        "firtName": "or",
+        "firstName": "or",
         "lastName": "zion",
         "email": "skhn7412@gmail.com",
         "password": "orzion45632546",
@@ -9,10 +9,10 @@
     },
     {
          "id": 12,
-         "firtName": "bar",
+         "firstName": "bar",
          "lastName": "zion",
          "email":  "barzion34@gmail.com",
          "password": "barzion45632546",
-         "image": "./"
+         "imageProfile": "./"
     }
 ]

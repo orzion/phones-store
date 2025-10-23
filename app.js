@@ -16,6 +16,7 @@ let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 const btnFavorite = document.querySelector('.favorite');
 
 const favoritesContainer = document.querySelector('#fav-contianer');
+const mainIndex2 = document.querySelector('.main-index');
 
 const cartContainerPage = document.querySelector('.cart-main');
 
@@ -67,6 +68,59 @@ const loginConteiner = document.querySelector('#login-conteiner');
 
 
 if(loginConteiner!==null){
+const loginForm = document.getElementById('login-container');
+const welcomeContainer = document.getElementById('welcome-container');
+const userNameSpan = document.getElementById('userName');
+const profileImage = document.getElementById('profileImage');
+const logoutBtn = document.getElementById('logoutBtn');
+
+let users = [];
+
+window.onload = async () => {
+  // Check if user is already logged in
+  const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (storedUser) {
+    showWelcome(storedUser);
+  }
+
+  try {
+    const response = await fetch('users.json');
+    if (!response.ok) throw new Error('Failed to load users.json');
+    users = await response.json();
+  } catch (error) {
+    alert('Error loading users.json. Are you running on localhost?');
+    console.error(error);
+  }
+};
+
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+
+  const user = users.find(u => u.email === email && u.password === password);
+
+  if (user) {
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    showWelcome(user);
+  } else {
+    alert("Invalid email or password.");
+  }
+});
+
+logoutBtn.addEventListener('click', () => {
+  localStorage.removeItem('loggedInUser');
+  welcomeContainer.classList.add('hidden');
+  loginForm.classList.remove('hidden');
+});
+
+function showWelcome(user) {
+  userNameSpan.textContent = `${user.firstName} ${user.lastName}`;
+  profileImage.src = user.imageProfile;
+  loginForm.classList.add('hidden');
+  welcomeContainer.classList.remove('hidden');
+}
+
 }
 
 
@@ -152,7 +206,8 @@ function renderProducts(products, container) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+if(mainIndex2!==null){
+  document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slides img');
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
@@ -193,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', prevSlide);
 });
 
+}
 let rootElement = document.documentElement;
 
 

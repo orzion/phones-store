@@ -104,6 +104,10 @@ img.displaySlide{
     text-align: center;
 }
 
+.hidden{
+    display: none;
+}
+
 .main-nav .nav-items {
     width: 100%;
     position: fixed;

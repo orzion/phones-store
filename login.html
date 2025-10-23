@@ -43,21 +43,19 @@
         </nav>
     </header>
     <main class="main-sinup">
-        
-        <form  class="form-sinup" id="login-conteiner">
-            <h1 class="title-sinup">login</h1>
-            <div class="email">
-                <label class="screen-reader-only" for="email">email</label>
-                <input class="input-sizeing" type="email" name="email" id="email" required placeholder="exemple@exemple.com">
-            </div>
-            <div class="password">
-                <label class="screen-reader-only" for="password">password</label>
-                <input class="input-sizeing" type="password" name="password" id="password" required placeholder="password" minlength="8">
-            </div>
-            <div class="submit">
-                <input class="submit-sinup" type="submit" value="submit">
-            </div>
-        </form>
+        <form id="login-container">
+    <h1>Login</h1>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="password" id="password" placeholder="Password" required minlength="8"><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="welcome-container" class="hidden">
+    <h2>Welcome, <span id="userName"></span>!</h2>
+    <img id="profileImage" class="profile-img" src="" alt="Profile Picture">
+    <br>
+    <button id="logoutBtn">Logout</button>
+  </div>
     </main>
     <footer id="footer">
         <div class="part">
@@ -79,5 +77,6 @@
             </div>
         </div>
     </footer>
+    <script src="./app.js"></script>
 </body>
 </html>
